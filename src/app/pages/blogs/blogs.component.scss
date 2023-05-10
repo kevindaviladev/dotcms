@@ -1,0 +1,61 @@
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+}
+.dotcms {
+
+
+  &-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 350px 1fr;
+
+    .content {
+      width: 100%;
+    }
+  }
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: scroll;
+
+  .new {
+    border: 1px solid gray;
+    display: flex;
+    padding: 1em;
+    max-width: 350px; //TODO: Remove later
+  }
+}
+
+.blog {
+  height: 100%;
+  max-height: 100%;
+  overflow: scroll;
+  &-header {
+    position: relative;
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .note{
+      background-color: rgba(128, 128, 128, 0.5);
+      color: white;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 1em;
+    }
+  }
+
+  &-content{
+    background-color: white;
+    padding: 2em;
+    height: 100%;
+  }
+}
