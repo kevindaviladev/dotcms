@@ -1,0 +1,16 @@
+  .new {
+    border: 1px solid gray;
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+
+    &-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    &--active {
+      background-color: #1d91ce;
+    }
+  }

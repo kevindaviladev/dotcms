@@ -1,0 +1,61 @@
+<div *ngIf="content | isArray; else render">
+  <div *ngFor="let item of content">
+    <div
+      *ngIf="item.type === 'paragraph'"
+      [ngStyle]="item.attrs">
+      <p *ngFor="let child of item.content">
+      <app-parser-to-html [content]="child"></app-parser-to-html>
+    </p>
+    </div>
+    <div *ngIf="item.type === 'text'">{{item.text}}</div>
+    <ul
+      *ngIf="item.type === 'listItem'"
+      [ngStyle]="item.attrs">
+      <li *ngFor="let child of item.content">
+      <app-parser-to-html [content]="child"></app-parser-to-html>
+    </li>
+    </ul>
+    <div
+      *ngIf="item.type === 'image'"
+      [ngStyle]="item.attrs">
+      <img
+        [src]="item.url"
+        [alt]="item.altText">
+    </div>
+    <!-- Add more cases for other content types here -->
+  </div>
+</div>
+
+<ng-template #render>
+  <div
+    *ngIf="content.type === 'paragraph'"
+    [ngStyle]="content.attrs">
+    <p *ngFor="let child of content.content">
+  <app-parser-to-html [content]="child"></app-parser-to-html></p>
+  </div>
+  <div *ngIf="content.type === 'text'">{{content.text}}</div>
+  <ul
+    *ngIf="content.type === 'listItem'"
+    [ngStyle]="content.attrs">
+    <li *ngFor="let child of content.content">
+  <app-parser-to-html [content]="child"></app-parser-to-html></li>
+  </ul>
+  <ol
+    *ngIf="content.type === 'orderedList'"
+    [ngStyle]="content.attrs">
+    <li *ngFor="let child of content.content">
+  <app-parser-to-html [content]="child"></app-parser-to-html></li>
+  </ol>
+  <div
+    *ngIf="content.type === 'image'"
+    [ngStyle]="content.attrs">
+    <img
+      [src]="content.url"
+      [alt]="content.altText">
+  </div>
+</ng-template>
+
+<!-- <ng-template
+  #render
+  let-item="item"></ng-template>
+<ng-container *ngTemplateOutlet="render; context: {item: content}"></ng-container> -->

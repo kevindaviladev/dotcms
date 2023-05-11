@@ -1,40 +1,16 @@
-<div class="wrapper">
-
+<div
+  class="wrapper"
+  *ngIf="blogs$ | async as blogs">
   <app-header></app-header>
   <main class="dotcms-container">
     <div class="news">
-      <div
-        class="new"
-        *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
-        <img
-          src="https://www.shutterstock.com/image-vector/fake-stamp-vector-grunge-rubber-260nw-1049845097.jpg"
-          alt="Image"
-          width="150px">
-        <div class="new-content">
-          <h2>
-            News Item title
-          </h2>
-          <p>40 min ago</p>
-        </div>
-      </div>
 
+      <app-new-card
+        *ngFor="let blog of blogs"
+        [blog]="blog"></app-new-card>
     </div>
     <div class="content">
-      <div class="blog">
-        <div class="blog-header">
-          <img
-            src="https://i.pinimg.com/736x/ab/c4/8b/abc48b4afe75a9c72f5cc162e6bf2be9.jpg"
-            alt="Frog!">
-          <div class="note">
-            <h2>News Item title</h2>
-            <p>Published Jan 21, 2018</p>
-          </div>
-        </div>
-
-        <div class="blog-content">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum explicabo labore nulla neque ducimus voluptatibus quisquam odit, provident cumque dolor officiis culpa quia, consequuntur fugiat quod, excepturi facilis iusto? Fugit nemo incidunt accusantium eum! Suscipit voluptatem, debitis nostrum corrupti neque omnis. Dolor officiis reiciendis, voluptatum eum temporibus ullam magnam similique? Deserunt explicabo modi sunt ex ea? Provident repudiandae aut quisquam ullam dolore beatae fugiat nesciunt corrupti error eveniet fuga, maiores ad, rerum quae in molestiae sunt blanditiis cum deserunt voluptate sed temporibus voluptas cumque obcaecati? Sed placeat, suscipit laboriosam est laudantium in, alias consectetur quidem recusandae perspiciatis, voluptatibus velit sapiente!</p>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </main>
 </div>

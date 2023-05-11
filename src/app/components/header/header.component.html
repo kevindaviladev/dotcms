@@ -1,13 +1,14 @@
 <header class="dotcms-header">
   <h1>DotCMS News Listing</h1>
-  <select>
+  <select (change)="onFilterChange($event)">
     <option
       disabled
       selected>
       Filter by date
     </option>
-    <option value>Today</option>
-    <option value>Yesterday</option>
-    <option value>Last week</option>
+    <option value="01/01/2022 TO 01/01/2023">2023</option>
+    <option value="01/01/2021 TO 01/01/2022">2022</option>
+    <option value="01/01/2020 TO 01/01/2021">2021</option>
+    <option value="01/01/2019 TO 01/01/2020">2020</option>
   </select>
 </header>

@@ -1,0 +1,15 @@
+<div
+  class="new"
+  [routerLink]="'/blogs/'+blog.identifier"
+  routerLinkActive="new--active">
+  <img
+    [src]="blog.imageContentAsset | image"
+    [alt]="blog.title"
+    class="new-img">
+  <div class="new-content">
+    <h2>
+    {{blog.title}}
+  </h2>
+    <p>{{blog.postingDate | date}}</p>
+  </div>
+</div>

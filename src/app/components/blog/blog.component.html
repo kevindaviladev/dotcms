@@ -1,0 +1,28 @@
+<div
+  class="blog"
+  *ngIf="blog$ | async as blog; else loading">
+  <ng-container *ngIf="blog.title; else notFound">
+    <div class="blog-header">
+      <img
+        [src]="blog.imageContentAsset | image"
+        [alt]="blog.title">
+      <div class="note">
+        <h2>{{blog.title}}</h2>
+        <p>{{blog.postingDate | date}}</p>
+      </div>
+    </div>
+
+    <div class="blog-content">
+      <app-parser-to-html [content]="blog.blogContent.content"></app-parser-to-html>
+      <br>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>
+
+<ng-template #notFound>
+  <h1>Blog Not Found</h1>
+</ng-template>
