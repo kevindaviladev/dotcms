@@ -1,18 +1,22 @@
-.wrapper{
+.wrapper {
   width: 100vw;
   height: 100vh;
   max-width: 100%;
 }
+
 .dotcms {
-
-
   &-container {
     display: grid;
     height: 100%;
     max-height: calc(100% - 60px);
     grid-template-columns: 350px 1fr;
 
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
     .content {
+      height: 100%;
       width: 100%;
     }
   }
@@ -24,6 +28,7 @@
   max-height: 100%;
   overflow-y: scroll;
 
-
+  @media only screen and (max-width: 768px) {
+    height: 350px;
+  }
 }
-
